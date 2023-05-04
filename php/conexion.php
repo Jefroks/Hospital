@@ -1,11 +1,11 @@
 <?php
-$usuario="prog5a";
-$contrasena="jospital1!";
-$servidor="localhost";
+$hostname="localhost";
+$username="prog5a";
+$password="jospital1!";
 $basededatos="db_hospital";
 //$GLOBAL ["conexion"];
-$conexion = mysqli_connect($servidor,$usuario,$contrasena) or 
+$conexion = mysqli_connect($hostname,$username,$password,$basededatos) or 
 die ("No se ha podido conectar al servidor");
-
-$db = mysqli_select_db($conexion,$basededatos) or 
-die("No se ha podido conectar al servidor de Base de Datos");
+/* 
+$db = mysqli_select_db($conexion,) or 
+die("No se ha podido conectar al servidor de Base de Datos"); */
