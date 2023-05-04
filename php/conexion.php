@@ -1,6 +1,6 @@
 <?php
 $hostname="localhost";
-$username="prog5a";
+$username="hospital";
 $password="jospital1!";
 $basededatos="db_hospital";
 //$GLOBAL ["conexion"];
