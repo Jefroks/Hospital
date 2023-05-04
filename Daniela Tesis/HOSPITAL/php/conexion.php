@@ -1,7 +1,7 @@
 <?php
-$usuario="root";
-$contrasena="";
-$servidor="127.0.0.1";
+$usuario="prog5a";
+$contrasena="jospital1!";
+$servidor="localhost";
 $basededatos="db_hospital";
 //$GLOBAL ["conexion"];
 $conexion = mysqli_connect($servidor,$usuario,$contrasena) or 
