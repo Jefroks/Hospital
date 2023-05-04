@@ -13,7 +13,8 @@
         $email = $_POST["email"];
         $area = $_POST["opciones"];
         $descripcion = $_POST["comentario"];
-        $inserta = "INSERT INTO `pacientes` (`Nombre`, `Apellido`, 'Edad', 'Genero', 'Nacimiento', 'Tel','email', 'area', 'Descripcion') VALUES ('$nombre','$apellido', '$edad', '$genero', '$nacimiento', '$tel','$email', '$area', '$descripcion');";
+        $inserta = "INSERT INTO `pacientes` (`Nombre`, `Apellido`, 'Edad', 'Genero', 'Nacimiento', 'Tel','email', 'area', 'Descripcion') VALUES ('nombre','apellido', '20', 'genero', '01/01/2000', '1231234556','email@mail.com', 'area 1', ' descripcion 12');";
+     //   $inserta = "INSERT INTO `pacientes` (`Nombre`, `Apellido`, 'Edad', 'Genero', 'Nacimiento', 'Tel','email', 'area', 'Descripcion') VALUES ('$nombre','$apellido', '$edad', '$genero', '$nacimiento', '$tel','$email', '$area', '$descripcion');";
     } 
     else{
     echo '<p>Por favor, complete el <a href="Generar_Registro.html">formulario</a></p>';
