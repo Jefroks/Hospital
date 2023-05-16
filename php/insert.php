@@ -33,8 +33,4 @@ if ($stmt->rowCount() > 0) {
 } else {
     echo 'Error inserting data: ' . $stmt->errorInfo();
 }
-
-// Close the connection
-$db = null;
-
 ?>
