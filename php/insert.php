@@ -1,23 +1,38 @@
 <?php
     require("conexion.php");
 ?>
+
 <?php
-    
-    if (isset($_POST["nombre"], $_POST["apellido"], $_POST["edad"], $_POST["genero"], $_POST["fecha"], $_POST["telefono"],$_POST["email"], $_POST["opciones"], $_POST["comentario"]) and $_POST["nombre"] !="" and $_POST["apellido"]!="" and $edad = $_POST["edad"]!="" and $_POST["genero"]!="" and $_POST["fecha"]!="" and $_POST["telefono"]!="" and $_POST["email"]!="" and $_POST["opciones"]!="" and $_POST["comentario"]!=""){
-        $nombre = $_POST["nombre"];
-        $apellido = $_POST["apellido"];
-        $edad = $_POST["edad"];
-        $genero = $_POST["genero"];
-        $nacimiento = $_POST["fecha"];
-        $tel = $_POST["telefono"];
-        $email = $_POST["email"];
-        $area = $_POST["opciones"];
-        $descripcion = $_POST["comentario"];
-        $inserta = "INSERT INTO `pacientes` (`Nombre`, `Apellido`, `Edad`, `Genero`, `Nacimiento`, `Tel`,`email`, `area`, `Descripcion`) VALUES ('nombre','apellido', '20', 'genero', '01/01/2000', '1231234556','email@mail.com', 'area 1', ' descripcion 12');";
-     //   $inserta = "INSERT INTO `pacientes` (`Nombre`, `Apellido`, `Edad`, `Genero`, `Nacimiento`, `Tel`,`email`, `area`, `Descripcion`) VALUES ('$nombre','$apellido', '$edad', '$genero', '$nacimiento', '$tel','$email', '$area', '$descripcion');";
-    } 
-    else{
-    echo '<p>Por favor, complete el <a href="Generar_Registro.html">formulario</a></p>';
-    }
-        
-?> 
+// Create the SQL query
+$sql = 'INSERT INTO pacientes (id, nombre, apellidoP, apellidoM, genero, curp, fechaN, email, fechaR, areas)
+VALUES (:idex, :nombre, :apeP, :apeM, :genero, :curp, :fechaN, :correo, :fechaR, :areaOp)';
+
+// Prepare the statement
+$stmt = $db->prepare($sql);
+
+// Bind the values from the form
+$stmt->bindValue(':id', $_POST['idex']);
+$stmt->bindValue(':nombre', $_POST['nombre']);
+$stmt->bindValue(':apeP', $_POST['apeP']);
+$stmt->bindValue(':apeM', $_POST['apeM']);
+$stmt->bindValue(':genero', $_POST['genero']);
+$stmt->bindValue(':curp', $_POST['curp']);
+$stmt->bindValue(':fechaN', $_POST['fechaN']);
+$stmt->bindValue(':correo', $_POST['correo']);
+$stmt->bindValue(':fechaR', $_POST['fechoR']);
+$stmt->bindValue(':areaOp', $_POST['opciones']);
+
+// Execute the statement
+$stmt->execute();
+
+// Check if the query was successful
+if ($stmt->rowCount() > 0) {
+    echo 'Data inserted successfully!';
+} else {
+    echo 'Error inserting data: ' . $stmt->errorInfo();
+}
+
+// Close the connection
+$db = null;
+
+?>

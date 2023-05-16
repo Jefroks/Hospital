@@ -20,16 +20,16 @@
 	<main>
 		<center>
 		<h2>DATOS DEL PACIENTE</h2><br><br><br><br>
-		<form action="registrar.php" method="post">
+		<form action="php/insert.php" method="post">
 			<label for="No.Expediente">No.Expediente:</label>
-			<input type="id" id="No.Expediente" name="No.Expediente" required>
+			<input type="id" id="idex" name="No.Expediente" required>
 			<br><br>
 			<label for="nombre(s)">Nombre(s):</label>
-			<input type="text" id="nombre(s)" name="nombre(s)" required>
+			<input type="text" id="nombre" name="nombre(s)" required>
 			<label for="Apellido Paterno">Apellido Paterno:</label>
-			<input type="text" id="Apellido Paterno" name="Apellido Paterno" required>
+			<input type="text" id="apeP" name="Apellido Paterno" required>
 			<label for="Apellido Materno">Apellido Materno:</label>
-			<input type="text" id="Apellido Materno" name="Apellido Materno" required>
+			<input type="text" id="apeM" name="Apellido Materno" required>
 			<br><br>
 
 
@@ -44,10 +44,10 @@
 				<option value="otro">Otro</option>
 			</select>
 			<label for="Curp">Curp:</label>
-			<input type="Curp" id="Curp" name="Curp" pattern="[0-17]{18}" required>
+			<input type="text" id="curp" name="curp" pattern="[0-17]{18}" required>
 
 			<label for="fecha">Fecha de nacimiento:</label>
-			<input type="date" id="fecha" name="fecha" required>
+			<input type="date" id="fechaN" name="fecha" required>
 			<br><br>
 
 			<label for="Direccion">Direccion:</label>
@@ -61,7 +61,7 @@
 			<input type="email" id="correo" name="correo" required>
 			
 			<label for="fecha">Fecha de Registro:</label>
-			<input type="date" id="fecha" name="fecha" required>
+			<input type="date" id="fechaR" name="fecha" required>
 			<br><br>
 
 			 
