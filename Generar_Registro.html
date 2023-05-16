@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Registro de Pacientes</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 	<header>
 		<nav>
@@ -16,92 +18,89 @@
 		</nav>
 		<h1>HOSPITAL COMUNITARIO DE TETELA DE OCAMPO</h1>
 	</header>
-	
+
 	<main>
 		<center>
-		<h2>DATOS DEL PACIENTE</h2><br><br><br><br>
-		<form action="php/insert.php" method="post">
-			<label for="No.Expediente">No.Expediente:</label>
-			<input type="id" id="idex" name="No.Expediente" required>
-			<br><br>
-			<label for="nombre(s)">Nombre(s):</label>
-			<input type="text" id="nombre" name="nombre(s)" required>
-			<label for="Apellido Paterno">Apellido Paterno:</label>
-			<input type="text" id="apeP" name="Apellido Paterno" required>
-			<label for="Apellido Materno">Apellido Materno:</label>
-			<input type="text" id="apeM" name="Apellido Materno" required>
-			<br><br>
+			<h2>DATOS DEL PACIENTE</h2><br><br><br><br>
+			<form action="php/insert.php" method="post">
+				<label for="No.Expediente">No.Expediente:</label>
+				<input type="id" id="idex" name="No.Expediente" required>
+				<br><br>
+				<label for="nombre(s)">Nombre(s):</label>
+				<input type="text" id="nombre" name="nombre(s)" required>
+				<label for="Apellido Paterno">Apellido Paterno:</label>
+				<input type="text" id="apeP" name="Apellido Paterno" required>
+				<label for="Apellido Materno">Apellido Materno:</label>
+				<input type="text" id="apeM" name="Apellido Materno" required>
+				<br><br>
 
 
-			<label for="edad">Edad:</label>
-			<input type="number" id="edad" name="edad" min="1" max="120" required>
-			
-			<label for="genero">Género:</label>
-			<select id="genero" name="genero" required>
-				<option value="">Seleccione una opción</option>
-				<option value="masculino">Masculino</option>
-				<option value="femenino">Femenino</option>
-				<option value="otro">Otro</option>
-			</select>
-			<label for="Curp">Curp:</label>
-			<input type="text" id="curp" name="curp" pattern="[0-17]{18}" required>
+				<label for="edad">Edad:</label>
+				<input type="number" id="edad" name="edad" min="1" max="120" required>
 
-			<label for="fecha">Fecha de nacimiento:</label>
-			<input type="date" id="fechaN" name="fecha" required>
-			<br><br>
+				<label for="genero">Género:</label>
+				<select id="genero" name="genero" required>
+					<option value="">Seleccione una opción</option>
+					<option value="masculino">Masculino</option>
+					<option value="femenino">Femenino</option>
+					<option value="otro">Otro</option>
+				</select>
+				<label for="Curp">Curp:</label>
+				<input type="text" id="curp" name="curp" pattern="[0-17]{18}" required>
 
-			<label for="Direccion">Direccion:</label>
-			<input type="Direccion" id="Direccion" name="Direccion" required>
- 
-			 
-			<label for="telefono">Teléfono:</label>
-			<input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" required><br>
-			<br>
-			<label for="correo">Correo electrónico:</label>
-			<input type="email" id="correo" name="correo" required>
-			
-			<label for="fecha">Fecha de Registro:</label>
-			<input type="date" id="fechaR" name="fecha" required>
-			<br><br>
+				<label for="fecha">Fecha de nacimiento:</label>
+				<input type="date" id="fechaN" name="fecha" required>
+				<br><br>
 
-			 
-			<form>
-			<label for="opciones">Área Designada</label>
-			<select id="opciones" onchange="mostrarOpcion()" id="opciones" name="opciones" required>
-				<option value="SELECCIONAR">SELECCIONAR</option>
-				<option value="URGENCIAS">URGENCIAS</option>
-				<option value="HOSPITALIZACION">HOSPITALIZACION</option>
-				
-			</select>
-		</form>
-			<div id="contenidoOpcion"></div>
-			<script>
-				function mostrarOpcion() {
-				  const opciones = document.getElementById("opciones");
-				  const contenidoOpcion = document.getElementById("contenidoOpcion");
-			
-				  if (opciones.value === "SELECCIONAR") 
-				  { contenidoOpcion.innerHTML = "<p>SELECCIONA UNA OPCIÓN </p>";} 
-				  else if (opciones.value === "URGENCIAS") 
-				  {contenidoOpcion.innerHTML = "<p>AGREGAR REGISTRO AL ÁREA DE URGENCIAS</p>";}
-				  else if (opciones.value === "HOSPITALIZACION") 
-				  {contenidoOpcion.innerHTML = "<p>AGREGAR REGISTRO AL ÁREA DE HOSPITALIZACION</p>";}
+				<label for="Direccion">email:</label>
+				<input type="Direccion" id="Direccion" name="Direccion" required>
 
-			}
-			</script>
-			<br>
+
+				<label for="telefono">Teléfono:</label>
+				<input type="tel" id="telefono" name="telefono" pattern="[0-9]{10}" required><br>
+				<br>
+				<label for="correo">Correo electrónico:</label>
+				<input type="email" id="correo" name="correo" required>
+
+				<label for="fecha">Fecha de Registro:</label>
+				<input type="date" id="fechaR" name="fecha" required>
+				<br><br>
+
+
+				<label for="opciones">Área Designada</label>
+				<select id="opciones" onchange="mostrarOpcion()" id="opciones" name="opciones" required>
+					<option value="SELECCIONAR">SELECCIONAR</option>
+					<option value="URGENCIAS">URGENCIAS</option>
+					<option value="HOSPITALIZACION">HOSPITALIZACION</option>
+
+				</select>
+
+				<div id="contenidoOpcion"></div>
+				<script>
+					function mostrarOpcion() {
+						const opciones = document.getElementById("opciones");
+						const contenidoOpcion = document.getElementById("contenidoOpcion");
+
+						if (opciones.value === "SELECCIONAR") { contenidoOpcion.innerHTML = "<p>SELECCIONA UNA OPCIÓN </p>"; }
+						else if (opciones.value === "URGENCIAS") { contenidoOpcion.innerHTML = "<p>AGREGAR REGISTRO AL ÁREA DE URGENCIAS</p>"; }
+						else if (opciones.value === "HOSPITALIZACION") { contenidoOpcion.innerHTML = "<p>AGREGAR REGISTRO AL ÁREA DE HOSPITALIZACION</p>"; }
+
+					}
+				</script>
+				<br>
 				<label for="comentario">DIAGNOSTICO DEL PACIENTE</label>
 				<br>
 				<textarea id="comentario" name="comentario" rows="2.3" cols="30"></textarea>
-			<br>
-			<br><br><br>
-			<button type="submit" value="Enviar">Registrar</button>
+				<br>
+				<br><br><br>
+				<button type="submit" value="Enviar">Registrar</button>
 		</center>
 		</form>
 	</main>
-	
+
 	<footer>
 		<p>Derechos reservados &copy; 2023 Hospital XYZ</p>
 	</footer>
 </body>
+
 </html>
