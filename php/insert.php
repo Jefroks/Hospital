@@ -1,35 +1,46 @@
 <?php
-    require("conexion.php");
+$servername="localhost";
+$username="hospital";
+$password="jospital1!";
+$dbname="db_hospital";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 
 // Create the SQL query
-$sql = 'INSERT INTO pacientes (id, nombre, apellidoP, apellidoM, genero, curp, fechaN, dir, tel, email, fechaR, areas)
-VALUES (:idex, :nombre, :apeP, :apeM, :genero, :curp, :fechaN, :dir, :tel, :correo, :fechaR, :areaOp)';
+$stmt = $conn->prepare ("INSERT INTO pacientes (id, nombre, apellidoP, apellidoM, genero, curp, fechaN, dir, tel, email, fechaR, areas)
+VALUES (:idex, :nombre, :apeP, :apeM, :genero, :curp, :fechaN, :dir, :tel, :correo, :fechaR, :areaOp);");
 
-// Prepare the statement
-$stmt = $db->prepare($sql);
+$stmt->bind_param("ssssssssss", $field1, $field2, $field3, $field4, $field5, $field6, $field7, $field8, $field9, $field10);
+
 
 // Bind the values from the form
-$stmt->bindValue(':id', $_POST['idex']);
-$stmt->bindValue(':nombre', $_POST['nombre']);
-$stmt->bindValue(':apeP', $_POST['apeP']);
-$stmt->bindValue(':apeM', $_POST['apeM']);
-$stmt->bindValue(':genero', $_POST['genero']);
-$stmt->bindValue(':curp', $_POST['curp']);
-$stmt->bindValue(':fechaN', $_POST['fechaN']);
-$stmt->bindValue(':dir', $_POST['dir']);
-$stmt->bindValue(':tel', $_POST['tel']);
-$stmt->bindValue(':correo', $_POST['correo']);
-$stmt->bindValue(':fechaR', $_POST['fechoR']);
-$stmt->bindValue(':areaOp', $_POST['opciones']);
+$id = $_POST['idex'];
+$nombre = $_POST['nombre'];
+$apeP = $_POST['apeP'];
+$apeM = $_POST['apeM'];
+$genero = $_POST['genero'];
+$curp = $_POST['curp'];
+$fechaN = $_POST['fechaN'];
+$dir = $_POST['dir'];
+$tel = $_POST['tel'];
+$correo = $_POST['correo'];
+$fechaR = $_POST['fechoR'];
+$areaOp = $_POST['opciones'];
 
 // Execute the statement
 $stmt->execute();
 
 // Check if the query was successful
-if ($stmt->rowCount() > 0) {
-    echo 'Data inserted successfully!';
+if ($stmt->execute()) {
+    echo "Data inserted successfully.";
 } else {
-    echo 'Error inserting data: ' . $stmt->errorInfo();
+    echo "Error: " . $stmt->error;
 }
 
 header("Location: index.html");
