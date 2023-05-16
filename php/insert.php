@@ -1,8 +1,6 @@
 <?php
     require("conexion.php");
-?>
 
-<?php
 // Create the SQL query
 $sql = 'INSERT INTO pacientes (id, nombre, apellidoP, apellidoM, genero, curp, fechaN, dir, tel, email, fechaR, areas)
 VALUES (:idex, :nombre, :apeP, :apeM, :genero, :curp, :fechaN, :dir, :tel, :correo, :fechaR, :areaOp)';
