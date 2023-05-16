@@ -30,7 +30,7 @@ $fechaN = $_POST['fechaN'];
 $dir = $_POST['dir'];
 $tel = $_POST['tel'];
 $correo = $_POST['correo'];
-$fechaR = $_POST['fechoR'];
+$fechaR = $_POST['fechaR'];
 $areaOp = $_POST['opciones'];
 
 // Execute the statement
