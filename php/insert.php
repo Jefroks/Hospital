@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 $stmt = $conn->prepare ("INSERT INTO pacientes (id, nombre, apellidoP, apellidoM, genero, curp, fechaN, dir, tel, email, fechaR, areas)
 VALUES (:idex, :nombre, :apeP, :apeM, :genero, :curp, :fechaN, :dir, :tel, :correo, :fechaR, :areaOp);");
 
-$stmt->bind_param("ssssssssss", $field1, $field2, $field3, $field4, $field5, $field6, $field7, $field8, $field9, $field10);
+$stmt->bind_param("ssssssssss", $id, $nombre, $apeP, $apeM, $genero, $curp, $fechaN, $dir, $tel, $correo, $fechaR, $areaOp);
 
 
 // Bind the values from the form
