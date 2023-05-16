@@ -4,8 +4,8 @@
 
 <?php
 // Create the SQL query
-$sql = 'INSERT INTO pacientes (id, nombre, apellidoP, apellidoM, genero, curp, fechaN, email, fechaR, areas)
-VALUES (:idex, :nombre, :apeP, :apeM, :genero, :curp, :fechaN, :correo, :fechaR, :areaOp)';
+$sql = 'INSERT INTO pacientes (id, nombre, apellidoP, apellidoM, genero, curp, fechaN, dir, tel, email, fechaR, areas)
+VALUES (:idex, :nombre, :apeP, :apeM, :genero, :curp, :fechaN, :dir, :tel, :correo, :fechaR, :areaOp)';
 
 // Prepare the statement
 $stmt = $db->prepare($sql);
@@ -18,6 +18,8 @@ $stmt->bindValue(':apeM', $_POST['apeM']);
 $stmt->bindValue(':genero', $_POST['genero']);
 $stmt->bindValue(':curp', $_POST['curp']);
 $stmt->bindValue(':fechaN', $_POST['fechaN']);
+$stmt->bindValue(':dir', $_POST['dir']);
+$stmt->bindValue(':tel', $_POST['tel']);
 $stmt->bindValue(':correo', $_POST['correo']);
 $stmt->bindValue(':fechaR', $_POST['fechoR']);
 $stmt->bindValue(':areaOp', $_POST['opciones']);
