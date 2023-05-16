@@ -1,8 +1,8 @@
 <?php
-$servername="localhost";
-$username="hospital";
-$password="jospital1!";
-$dbname="db_hospital";
+$servername = "localhost";
+$username = "hospital";
+$password = "jospital1!";
+$dbname = "db_hospital";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -13,8 +13,8 @@ if ($conn->connect_error) {
 
 
 // Create the SQL query
-$stmt = $conn->prepare ("INSERT INTO pacientes (id, nombre, apellidoP, apellidoM, genero, curp, fechaN, dir, tel, email, fechaR, areas)
-VALUES (:idex, :nombre, :apeP, :apeM, :genero, :curp, :fechaN, :dir, :tel, :correo, :fechaR, :areaOp);");
+$stmt = $conn->prepare("INSERT INTO pacientes (id, nombre, apellidoP, apellidoM, genero, curp, fechaN, dir, tel, email, fechaR, areas)
+VALUES (?,?,?,?,?,?,?,?,?,?,?,?);");
 
 $stmt->bind_param("ssssssssssss", $id, $nombre, $apeP, $apeM, $genero, $curp, $fechaN, $dir, $tel, $correo, $fechaR, $areaOp);
 
@@ -44,4 +44,3 @@ if ($stmt->execute()) {
 }
 
 header("Location: index.html");
-?>
